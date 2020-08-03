@@ -1,0 +1,2 @@
+C:\Users\k\source\repos\SFML_Test\Debug\SFML_Test.exe
+C:\Users\k\source\repos\SFML_Test\Debug\SFML_Test.pdb

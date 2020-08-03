@@ -1,0 +1,8 @@
+﻿  Aircraft.cpp
+  Entity.cpp
+  Game.cpp
+  main.cpp
+  SceneNode.cpp
+  Generating Code...
+C:\Users\k\source\repos\SFML_Test\Aircraft.cpp(13): warning C4715: 'toTextureID': not all control paths return a value
+  SFML_Test.vcxproj -> C:\Users\k\source\repos\SFML_Test\Debug\SFML_Test.exe

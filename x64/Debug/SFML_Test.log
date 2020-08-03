@@ -1,0 +1,8 @@
+﻿  Aircraft.cpp
+  Entity.cpp
+  Game.cpp
+  main.cpp
+  SceneNode.cpp
+  Generating Code...
+C:\Users\k\source\repos\SFML_Test\Aircraft.cpp(13): warning C4715: 'toTextureID': not all control paths return a value
+sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: module machine type 'x86' conflicts with target machine type 'x64'
