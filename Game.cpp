@@ -93,6 +93,8 @@ void Game::processEvents()
 
 void Game::update(sf::Time deltaTime)
 {
+	mWorldView.move(0.f, mScrollSpeed * dt.asSeconds());
+
 	sf::Vector2f movement(0.f, 0.f);
 
 	if (mIsMovingUp)
