@@ -3,6 +3,10 @@
 #include "ResourceHolder.h"
 #include "ResourceHolder.inl"
 #include "Aircraft.h"
+#include "SpriteNode.h"
+#include "World.h"
+#include <iostream>
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Window.hpp>
@@ -11,7 +15,7 @@
 
 sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
 float power = 50.f;
-Game::Game()
+Game::Game() : mWindow(sf::VideoMode(640, 480), "Zoodini's game", sf::Style::Close), mWorld(mWindow)
 {
 	printf("The game has been created\n");
 }
@@ -23,22 +27,10 @@ Game::~Game()
 
 void Game::run()
 {	//Creating the window and the data structure that holds the resrouces
-	mWindow = new sf::RenderWindow(sf::VideoMode(640, 480), "Zoodini's game", sf::Style::Close);
-	TextureHolder textureHolder;
-
-	//Loading the resources
-	textureHolder.load(Textures::Airplane, "Media/Textures/Eagle.png");
-	textureHolder.load(Textures::Landscape, "Media/Textures/Desert.png");
-
-	//Assigning the resources to the game elements
-	mBackground.setTexture(textureHolder.get(Textures::Landscape));
-
-	mPlayer.setTexture(textureHolder.get(Textures::Airplane));
-	mPlayer.setPosition(100, 100);
 
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-	while (mWindow->isOpen())
+	while (mWindow.isOpen())
 	{
 		timeSinceLastUpdate += clock.restart();
 		while (timeSinceLastUpdate > TimePerFrame)
@@ -52,27 +44,27 @@ void Game::run()
 	}
 }
 
-void Game::setPlayer(sf::Sprite sprite)
+/*void Game::setPlayer(sf::Sprite sprite)
 {
 	mPlayer = sprite;
-}
+}*/
 
 void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
 {
-	if (key == sf::Keyboard::W)
+	/*if (key == sf::Keyboard::W)
 		mIsMovingUp = isPressed;
 	else if (key == sf::Keyboard::S)
 		mIsMovingDown = isPressed;
 	else if (key == sf::Keyboard::A)
 		mIsMovingLeft = isPressed;
 	else if (key == sf::Keyboard::D)
-		mIsMovingRight = isPressed;
+		mIsMovingRight = isPressed;*/
 }
 
 void Game::processEvents()
 {
 	sf::Event event;
-	while (mWindow->pollEvent(event))
+	while (mWindow.pollEvent(event))
 	{
 		switch (event.type)
 		{
@@ -85,7 +77,7 @@ void Game::processEvents()
 			break;
 
 		case sf::Event::Closed:
-			mWindow->close();
+			mWindow.close();
 			break;
 		}
 	}
@@ -93,34 +85,12 @@ void Game::processEvents()
 
 void Game::update(sf::Time deltaTime)
 {
-	mWorldView.move(0.f, mScrollSpeed * dt.asSeconds());
-
-	sf::Vector2f movement(0.f, 0.f);
-
-	if (mIsMovingUp)
-	{
-		movement.y -= power;
-	}
-	if (mIsMovingDown)
-	{
-		movement.y += power;
-	}
-	if (mIsMovingLeft)
-	{
-		movement.x -= power;
-	}
-	if (mIsMovingRight)
-	{
-		movement.x += power;
-	}
-
-	mPlayer.move(movement* deltaTime.asSeconds());
+	mWorld.update(deltaTime);
 }
 
 void Game::render()
 {
-	mWindow->clear();
-	mWindow->draw(mBackground);
-	mWindow->draw(mPlayer); 
-	mWindow->display();
+	mWindow.clear();
+	mWorld.draw(); 
+	mWindow.display();
 }

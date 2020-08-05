@@ -1,8 +1,40 @@
 ﻿  Aircraft.cpp
+C:\Users\k\source\repos\SFML_Test\World.h(35,26): error C3646: 'mTextures': unknown override specifier
+C:\Users\k\source\repos\SFML_Test\World.h(35,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\k\source\repos\SFML_Test\World.h(42,11): error C2143: syntax error: missing ';' before '*'
+C:\Users\k\source\repos\SFML_Test\World.h(42,11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\k\source\repos\SFML_Test\World.h(42,28): error C2238: unexpected token(s) preceding ';'
   Entity.cpp
+C:\Users\k\source\repos\SFML_Test\Aircraft.h(22,1): error C2504: 'Entity': base class undefined
   Game.cpp
   main.cpp
-  SceneNode.cpp
+  World.cpp
+C:\Users\k\source\repos\SFML_Test\Game.h(32,14): error C3646: 'mWorld': unknown override specifier
+C:\Users\k\source\repos\SFML_Test\Game.h(32,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\k\source\repos\SFML_Test\World.cpp(7,90): error C2678: binary '-': no operator found which takes a left-hand operand of type 'T' (or there is no acceptable conversion)
+          with
+          [
+              T=float
+          ]
+C:\Users\k\Downloads\SFML-2.5.1\include\SFML\System\Time.hpp(268,22): message : could be 'sf::Time sf::operator -(sf::Time,sf::Time)' [found using argument-dependent lookup]
+C:\Users\k\Downloads\SFML-2.5.1\include\SFML\Graphics\Color.hpp(158,25): message : or       'sf::Color sf::operator -(const sf::Color &,const sf::Color &)' [found using argument-dependent lookup]
+C:\Users\k\source\repos\SFML_Test\World.cpp(7,90): message : while trying to match the argument list '(T, const sf::Vector2f)'
+          with
+          [
+              T=float
+          ]
+C:\Users\k\source\repos\SFML_Test\World.cpp(7,16): error C2665: 'sf::Vector2<float>::Vector2': none of the 4 overloads could convert all the argument types
+C:\Users\k\Downloads\SFML-2.5.1\include\SFML\System\Vector2.hpp(77,1): message : could be 'sf::Vector2<float>::Vector2(sf::Vector2<float> &&)'
+C:\Users\k\Downloads\SFML-2.5.1\include\SFML\System\Vector2.hpp(77,1): message : or       'sf::Vector2<float>::Vector2(const sf::Vector2<float> &)'
+C:\Users\k\Downloads\SFML-2.5.1\include\SFML\System\Vector2.hpp(56,5): message : or       'sf::Vector2<float>::Vector2(T,T)'
+          with
+          [
+              T=float
+          ]
+C:\Users\k\Downloads\SFML-2.5.1\include\SFML\System\Vector2.hpp(47,5): message : or       'sf::Vector2<float>::Vector2(void)'
+C:\Users\k\source\repos\SFML_Test\World.cpp(9,1): message : while trying to match the argument list '(T)'
+          with
+          [
+              T=float
+          ]
   Generating Code...
-C:\Users\k\source\repos\SFML_Test\Aircraft.cpp(13): warning C4715: 'toTextureID': not all control paths return a value
-  SFML_Test.vcxproj -> C:\Users\k\source\repos\SFML_Test\Debug\SFML_Test.exe
