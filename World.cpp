@@ -1,11 +1,15 @@
 #include "World.h"
 
-World::World(sf::RenderWindow& window) : 
-	mWindow(window),
-	mWorldView(window.getDefaultView()),
-	mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 2000.f), //We want the bounds to have the same width as the view, and 2000 is an arbitrary value.
-	mSpawnPosition(mWorldView.getSize().x / 2.f, (mWorldBounds.height - mWorldView.getSize())),
-	mPlayerAircraft(nullptr)
+World::World(sf::RenderWindow& window) 
+	:mWindow(window)
+	,mWorldView(window.getDefaultView())
+	,mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 2000.f) //We want the bounds to have the same width as the view, and 2000 is an arbitrary value.
+	,mSpawnPosition(mWorldView.getSize().x / 2.f, mWorldBounds.height - mWorldView.getSize().y)
+	,mPlayerAircraft(nullptr)
+	,mTextures()
+	,mSceneGraph()
+	,mSceneLayers()
+	,mScrollSpeed(-50.f)
 {
 	loadTextures();
 	buildScene();

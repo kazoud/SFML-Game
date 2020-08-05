@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "ResourceHolder.h"
+#include "ResourceHolder.inl"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Window.hpp>

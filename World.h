@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Game.h"
 #include "ResourceHolder.h"
 #include "ResourceHolder.inl"
@@ -15,7 +14,9 @@
 #include <SFML/Network.hpp>
 #include <SFML/System.hpp>
 
-class World: sf::NonCopyable
+typedef ResourceHolder<sf::Texture, Textures::ID> TextureHolder;
+
+class World: private sf::NonCopyable
 {
 	public:
 		explicit World(sf::RenderWindow& window);
